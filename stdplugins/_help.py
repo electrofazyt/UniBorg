@@ -1,4 +1,4 @@
-"""**Know Your UniBorg**
+"""**Know Your UniBorg***
 ◇ list of all loaded plugins
 ◆ `.helpme`\n
 ◇ to know Data Center
