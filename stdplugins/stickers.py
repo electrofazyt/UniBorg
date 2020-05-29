@@ -29,7 +29,7 @@ from telethon.tl.types import (
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd(pattern="kangsticker ?(.*)"))
+@borg.on(admin_cmd(pattern="sticker ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -44,8 +44,8 @@ async def _(event):
 
     me = borg.me
     userid = borg.uid
-    packname = f"{userid}'s @UniBorg Pack"
-    packshortname = f"Uni_Borg_{userid}"  # format: Uni_Borg_userid
+    packname = f"{userid}'s"
+    packshortname = f"{userid}"  # format: Uni_Borg_userid
 
     is_a_s = is_it_animated_sticker(reply_message)
     file_ext_ns_ion = "@UniBorg_Sticker.png"
@@ -116,7 +116,7 @@ async def _(event):
             await silently_send_message(bot_conv, sticker_emoji)
             await silently_send_message(bot_conv, "/done")
 
-    await event.edit(f"sticker added! Your pack can be found [here](t.me/addstickers/{packshortname})")
+    await event.edit(f"stickers trasformato con successo [cliccami](t.me/addstickers/{packshortname})")
 
 
 @borg.on(admin_cmd(pattern="packinfo"))
