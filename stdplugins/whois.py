@@ -1,5 +1,5 @@
 """Get Telegram Profile Picture and other information
-Syntax: .whois @username"""
+Syntax: .info @username"""
 
 import html
 from telethon.tl.functions.photos import GetUserPhotosRequest
@@ -9,7 +9,7 @@ from telethon.utils import get_input_location
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd(pattern="whois ?(.*)"))
+@borg.on(admin_cmd(pattern="info ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -52,15 +52,14 @@ async def _(event):
         dc_id = "Need a Profile Picture to check **this**"
         location = str(e)
     caption = """ID: <code>{}</code>
-First Name: <a href='tg://user?id={}'>{}</a>
-🤦‍♂️ Last Name: {}
-Bio: {}
-DC ID: {}
-Number of PPs: {}
-Restricted: {}
-Verified: {}
-Bot: {}
-Groups in Common: {}
+❌Primo nome: <a href='tg://user?id={}'>{}</a>
+❌Secondo nome: {}
+❌Bio: {}
+❌DC ID: {}
+❌Numero di PPs: {}
+❌Verificato: {}
+❌Bot: {}
+❌Gruppi in cummune: {}
 """.format(
         user_id,
         user_id,
@@ -69,7 +68,6 @@ Groups in Common: {}
         user_bio,
         dc_id,
         replied_user_profile_photos_count,
-        replied_user.user.restricted,
         replied_user.user.verified,
         replied_user.user.bot,
         common_chats
